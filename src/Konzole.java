@@ -13,6 +13,9 @@ public class Konzole {
 
     private void inicializace(){
 
+        mapa.put("help", new Help());
+        mapa.put("stop", new Quit());
+
     }
 
     private void proved() {
