@@ -4,21 +4,26 @@ public class Game {
 
     public GameData world;
     private Player player;
-    private HashMap<String, Command> commands;
+
 
     public void inicialization(){
-        Konzole konzole = new Konzole();
-        konzole.start();
-        commands = new HashMap<>();
+
+
         world = GameData.loadGameDataFromResources("/gamedata.json");
-        //TODO pridat commands
-        commands.put("pohyb", new Movement(player));
+
+        this.player = new Player();
+        if (!world.locations.isEmpty()) {
+            player.setCurrentLocation(world.locations.get(0));
+        }
+        Konzole konzole = new Konzole(this.player, this);
+        konzole.start();
 
     }
 
+
     public void start(){
         inicialization();
-        //zde bude herni smycka
+
     }
 
 }

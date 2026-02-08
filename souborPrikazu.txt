@@ -1,1 +1,4 @@
-help
+pohyb
+sever
+pohyv
+pohyb

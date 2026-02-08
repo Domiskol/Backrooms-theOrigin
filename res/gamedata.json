@@ -1,10 +1,23 @@
 {
-  "items": [
+  "locations": [
     {
-      "id": "kokot",
-      "name": "Prach",
-      "type": "FUN",
-      "description": "Prach, který se objevil ve tvém inventáři. Nemůžeš ho dostat pryč."
+      "id": "start",
+      "name": "Vstupní hala",
+      "description": "Nacházíš se ve žluté místnosti s bzučícími zářivkami.",
+      "exits": {
+        "sever": "chodba_1",
+        "vychod": "sklad"
+      }
+    },
+    {
+      "id": "chodba_1",
+      "name": "Nekonečná chodba",
+      "description": "Chodba, která se zdá být nekonečná.",
+      "exits": {
+        "jih": "start"
+      }
     }
-  ]
+  ],
+  "items": [],
+  "characters": []
 }

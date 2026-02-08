@@ -6,15 +6,24 @@ import java.util.Scanner;
 
 public class Konzole {
 
+    private Player player;
+    private Game game;
     private boolean exit = false;
     private HashMap<String, Command> mapa = new HashMap<>();
     public static String souborPrikazu = "souborPrikazu.txt";
     private Scanner scanner = new Scanner(System.in);
 
+
+    public Konzole(Player player, Game game) {
+        this.player = player;
+        this.game = game;
+    }
+
     private void inicializace(){
 
         mapa.put("help", new Help());
         mapa.put("stop", new Quit());
+        mapa.put("pohyb", new Movement(player, game));
 
     }
 
