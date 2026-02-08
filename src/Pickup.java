@@ -27,13 +27,18 @@ public class Pickup extends Command {
         Item item = currentLocation.findItem(nazevPredmetu);
 
         if (item != null) {
-            currentLocation.removeItem(item);
-            player.pickUpItem(item);
+            // Zkusíme předmět sebrat
+            boolean success = player.pickUpItem(item);
 
-            return "Sebral jsi: " + item.getName();
-        } else {
-            return "Takový předmět tu nevidím.";
+            if (success) {
+                currentLocation.removeItem(item);
+                return "Sebral jsi " + item.getName() + ".";
+            } else {
+                return "Tvůj batoh je plný! Musíš nejdříve něco zahodit (kapacita: "
+                        + player.getMaxCapacity() + ").";
+            }
         }
+        return "Takový předmět tu není.";
     }
 
     @Override

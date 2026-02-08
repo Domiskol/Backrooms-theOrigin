@@ -1,23 +1,126 @@
 {
-  "locations": [
-    {
-      "id": "sklad",
-      "name": "Starý sklad",
-      "description": "Je tu tma a vlhko.",
-      "exits": { "sever": "chodba" },
-      "items": ["baterka", "klic"]
-    }
-  ],
   "items": [
     {
-      "id": "baterka",
-      "name": "UV Baterka",
-      "description": "Svítí fialově."
+      "id": "sesit",
+      "name": "Zmačkaný školní sešit",
+      "description": "Sešit se jménem zmizelého žáka. Jsou v něm divné znaky."
+
     },
     {
-      "id": "klic",
-      "name": "Klíč od výtahu",
-      "description": "Malý stříbrný klíček."
+      "id": "hodinky",
+      "name": "Prasklé hodinky",
+      "description": "Digitální hodinky zastavené v čase. Občas v nich něco problikne."
+
+    },
+    {
+      "id": "tyc",
+      "name": "Kovová tyč",
+      "description": "Rezavá trubka ze servisních chodeb. Lepší než nic."
+
+    },
+    {
+      "id": "mec",
+      "name": "Meč",
+      "description": "Velmi účinná a silná zbraň. Je ale těžký a neskladný."
+
+    },
+    {
+      "id": "sprej",
+      "name": "Nouzový sprej",
+      "description": "Nádobka pro krizové situace. Může oslabit entity."
+
+    },
+    {
+      "id": "mobil",
+      "name": "Rozbitý mobil",
+      "description": "Telefon bez signálu. Jsou v něm jen fotky obětí."
+
+    }
+  ],
+  "characters": [
+    {
+      "id": "kreslir",
+      "name": "Kreslíř",
+      "role": "Mysterious",
+      "speech": "...červená barva nikdy nezaschne... šipky tě povedou, nebo tě zničí..."
+    },
+    {
+      "id": "ucitel",
+      "name": "Učitel bez obličeje",
+      "role": "Stalker",
+      "speech": "*stojí nehnutě a z jeho sešitu kape černý inkoust na podlahu*"
+    },
+    {
+      "id": "prisera_1",
+      "name": "Slepá entita",
+      "role": "Monster",
+      "speech": "*vydává cvakavé zvuky a natáčí hlavu směrem ke tvému dechu*"
+    }
+  ],
+  "locations": [
+    {
+      "id": "start",
+      "name": "Starting room",
+      "description": "Bílé stěny, bzučící zářivky a první červené šipky. Dominik: 'Kde to sakra jsem?'",
+      "exits": { "sever": "chodba_sipek", "zapad": "observacni_sal" },
+      "characterIds": [],
+      "itemIds": ["sesit"]
+    },
+    {
+      "id": "chodba_sipek",
+      "name": "Chodba šipek",
+      "description": "Klikatá chodba plná překrývajících se šipek. Něco tu cvaká.",
+      "exits": { "jih": "start", "vychod": "mistnost_textu" },
+      "characterIds": ["prisera_1"],
+      "itemIds": []
+    },
+    {
+      "id": "mistnost_textu",
+      "name": "Místnost nečitelného textu",
+      "description": "Nízký strop a stěny popsané znaky, které nedávají smysl.",
+      "exits": { "zapad": "chodba_sipek", "sever": "ztracena_trida" },
+      "characterIds": ["kreslir"],
+      "itemIds": ["hodinky"]
+    },
+    {
+      "id": "ztracena_trida",
+      "name": "Ztracená třída",
+      "description": "Lavice zarostlé do země a hodiny tikající pozpátku.",
+      "exits": { "jih": "mistnost_textu", "vychod": "servisni_chodby" },
+      "characterIds": ["ucitel"],
+      "itemIds": ["mobil"]
+    },
+    {
+      "id": "servisni_chodby",
+      "name": "Servisní chodby",
+      "description": "Tma, potrubí a ozvěna tvých vlastních kroků, která se opožďuje.",
+      "exits": { "zapad": "ztracena_trida", "sever": "sklad" },
+      "characterIds": [],
+      "itemIds": ["tyc"]
+    },
+    {
+      "id": "sklad",
+      "name": "Sklad zapomenutých věcí",
+      "description": "Hromady batohů a klíčů. Mezi haraburdím něco září.",
+      "exits": { "jih": "servisni_chodby", "sever": "temna_mistnost" },
+      "characterIds": [],
+      "itemIds": ["mec", "sprej"]
+    },
+    {
+      "id": "temna_mistnost",
+      "name": "Místnost bez světla",
+      "description": "Naprostá tma. Slyšíš jen svůj dech a něčí další.",
+      "exits": { "jih": "sklad", "sever": "observacni_sal" },
+      "characterIds": ["prisera_1"],
+      "itemIds": []
+    },
+    {
+      "id": "observacni_sal",
+      "name": "Observační sál",
+      "description": "Kruhová místnost s okny. Máš pocit, že tě odtud někdo sleduje.",
+      "exits": { "jih": "temna_mistnost" },
+      "characterIds": ["kreslir"],
+      "itemIds": []
     }
   ]
 }

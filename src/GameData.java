@@ -62,6 +62,19 @@ public class GameData {
                 }
             }
         }
+
+        for (Location l : locations) { // Tady definuješ proměnnou 'l'
+            if (l.getInitialCharacterIds() != null) { // Použiješ 'l'
+                for (String charId : l.getInitialCharacterIds()) {
+                    GameCharacter character = findCharacterById(charId);
+                    if (character != null) {
+                        l.addCharacter(character); // Použiješ 'l'
+                    }
+                }
+            }
+        }
+
+
     }
     public Item findItemById(String id) {
         for (Item i : items) {
@@ -69,6 +82,12 @@ public class GameData {
         }
         return null;
     }
-
+    public GameCharacter findCharacterById(String id) {
+        if (characters == null) return null;
+        for (GameCharacter c : characters) {
+            if (c.getId().equals(id)) return c;
+        }
+        return null;
+    }
 
 }

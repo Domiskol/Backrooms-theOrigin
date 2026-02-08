@@ -2,7 +2,7 @@ public class Help extends Command {
 
     @Override
     public String execute() {
-        return "help, stop, pohyb, seber, inventory, drop";
+        return "help, stop, pohyb, seber, inventory, drop, mluv";
     }
 
     @Override

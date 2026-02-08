@@ -27,6 +27,7 @@ public class Konzole {
         mapa.put("seber", new Pickup(player));
         mapa.put("inventory", new Inventory(this.player));
         mapa.put("drop", new Drop(this.player));
+        mapa.put("mluv", new Talk(this.player));
 
     }
 
@@ -43,6 +44,12 @@ public class Konzole {
         }
     }
     public void start() {
+        System.out.println("Hlavní postava hry Dominik pochází ze školy jménem Ječná, která poslední roky\n" +
+                "prochází obdobím pojmenovaném žáky školy \"The Disappearing\". Ze školy zmizelo\n" +
+                "záhadně a bez vysvětlení 6 žáku v období 3 měsíců. Dominik šel chodbou při hodině na\n" +
+                "záchod a kromě tvrdé země, kterou by měl cítit pod svými chodidly, ucítil prázdnotu jako\n" +
+                "kdyby padal z výšky. Dál si už nic nepamatuje. Hra začíná když se Dominik vzbudí ve\n" +
+                "vysoké místnosti z bílými stěnami a žlutými světly vydávající bzučivý nepříjemný zvuk. ");
         inicializace();
         try {
             resetSouboruProPrikazy();
@@ -52,12 +59,7 @@ public class Konzole {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        System.out.println("Hlavní postava hry Dominik pochází ze školy jménem Ječná, která poslední roky\n" +
-                "prochází obdobím pojmenovaném žáky školy \"The Disappearing\". Ze školy zmizelo\n" +
-                "záhadně a bez vysvětlení 6 žáku v období 3 měsíců. Dominik šel chodbou při hodině na\n" +
-                "záchod a kromě tvrdé země, kterou by měl cítit pod svými chodidly, ucítil prázdnotu jako\n" +
-                "kdyby padal z výšky. Dál si už nic nepamatuje. Hra začíná když se Dominik vzbudí ve\n" +
-                "vysoké místnosti z bílými stěnami a žlutými světly vydávající bzučivý nepříjemný zvuk. ");
+
 
     }
     private void ulozPrikaz(String prikaz) {

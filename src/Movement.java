@@ -3,7 +3,8 @@ import java.util.Scanner;
 public class Movement extends Command{
 
     private Player p;
-    private Game game; // Potřebujeme přístup k world data
+    private Game game;
+    private boolean isWin = false;
 
     public Movement(Player p, Game game) {
         this.p = p;
@@ -16,11 +17,11 @@ public class Movement extends Command{
         System.out.println("Kam chceš jít? (dostupné směry: " + p.getCurrentLocation().getExits().keySet() + ")");
         String direction = sc.nextLine().trim().toLowerCase();
 
-        // 1. Zjistíme ID cílové lokace z aktuální místnosti
+
         String targetLocationId = p.getCurrentLocation().getExitId(direction);
 
         if (targetLocationId != null) {
-            // 2. Najdeme objekt lokace v načtených datech (world)
+
             Location nextLocation = game.world.findLocation(targetLocationId);
 
             if (nextLocation != null) {
@@ -28,10 +29,36 @@ public class Movement extends Command{
                 return "Přešel jsi do: " + nextLocation.getName() + "\n" + nextLocation.getDescription();
             }
         }
+        Location novaLokace = p.getCurrentLocation();
+
+        if (!novaLokace.getCharactersInRoom().isEmpty()) {
+            for (GameCharacter c : novaLokace.getCharactersInRoom()) {
+
+                if ("kreslir".equals(c.getName())) {
+                    System.out.println("!!! POZOR !!!");
+                    System.out.println("V rohu místnosti vidíš: " + c.getName());
+                    System.out.println(c.getSpeech());
+
+                }
+            }
+        }
+
+
+
+        if (novaLokace.getId().equals("observacni_sal")) {
+            this.isWin = true;
+            return "Vydes do mistnosti a pocit stastnosti te naplni...  nasel si vychod!";
+        }
+
+
+
 
         return "Tímto směrem se nedá jít!";
     }
 
+
     @Override
-    public boolean exit() { return false; }
+    public boolean exit() {
+        return isWin;
+    }
 }

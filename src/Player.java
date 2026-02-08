@@ -2,18 +2,10 @@ import java.util.*;
 
 public class Player{
 
-  /*  @Override
-    public String execute() {
-        return ;
-    }
 
-    @Override
-    public boolean exit() {
-        return false;
-   }
-*/
     private Location currentLocation;
     private List<Item> inventory = new ArrayList<>();
+    private int maxCapacity = 5;
 
     public Location getCurrentLocation() {
 
@@ -25,8 +17,19 @@ public class Player{
         this.currentLocation = location;
     }
 
-    public void pickUpItem(Item item) {
-        inventory.add(item);
+    public boolean pickUpItem(Item item) {
+        if (inventory.size() < maxCapacity) {
+            inventory.add(item);
+            return true;
+        }
+        return false;
+    }
+
+    public int getInventorySize() {
+        return inventory.size();
+    }
+    public int getMaxCapacity() {
+        return maxCapacity;
     }
 
     public String getInventoryContent() {

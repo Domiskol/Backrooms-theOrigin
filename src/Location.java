@@ -61,4 +61,28 @@ public class Location {
         }
         return null;
     }
+
+    private List<String> characterIds;
+    private transient List<GameCharacter> charactersInRoom = new ArrayList<>();
+
+    public void addCharacter(GameCharacter character) {
+        charactersInRoom.add(character);
+    }
+
+    public List<GameCharacter> getCharactersInRoom() {
+        return charactersInRoom;
+    }
+
+    public GameCharacter findCharacter(String name) {
+        for (GameCharacter c : charactersInRoom) {
+            if (c.getName().toLowerCase().equals(name.toLowerCase())) return c;
+        }
+        return null;
+    }
+    public List<String> getInitialCharacterIds() {
+        return characterIds;
+    }
+
+
+
 }
