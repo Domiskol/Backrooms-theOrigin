@@ -1,7 +1,12 @@
 class Backrooms{
 
     public static void main(String[] args){
-        Konzole konzole = new Konzole();
-        konzole.start();
+        Game game = new Game();
+        GameData data = new GameData();
+        game.world = GameData.loadGameDataFromResources("/gamedata.json");
+        System.out.println(game.world.items);
+
+
     }
+
 }

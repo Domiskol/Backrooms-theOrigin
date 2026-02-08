@@ -1,0 +1,10 @@
+{
+  "items": [
+    {
+      "id": "kokot",
+      "name": "Prach",
+      "type": "FUN",
+      "description": "Prach, který se objevil ve tvém inventáři. Nemůžeš ho dostat pryč."
+    }
+  ]
+}
