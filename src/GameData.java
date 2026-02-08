@@ -5,11 +5,6 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
-/**
- * Represents the game data loaded from a JSON file.
- * This class serves as a data container for all static game content, such as items, characters, locations, and quests.
- *
- */
 public class GameData {
 
     public ArrayList<Item> items;
@@ -17,25 +12,20 @@ public class GameData {
     public ArrayList<Location> locations;
 
 
-    /**
-     * Loads game data from a JSON file.
-     * @param resourcePath path to the resource file
-     * @return a game.GameData object filled with the loaded data
-     */
     public static GameData loadGameDataFromResources(String resourcePath) {
-        //Vytvoření objektu pro práci s JSON souborem
+
         Gson gson = new Gson();
 
-        //Načtení souboru gamedata.json, musí být ve složce res/resources, ta musí být označena jako resource složka projektu
+
         try (InputStream is = GameData.class.getResourceAsStream(resourcePath)) {
 
-            //Zde ověřujeme, zdali soubor existuje
+
             if (is == null) {
                 throw new IllegalStateException("Nenalezen resource: " + resourcePath +
                         " (zkontrolujte, že soubor je v src/main/resources).");
             }
 
-            //Přečte celý JSON a vytvoří instanci game.GameData, naplní vlastnosti podle názvů klíčů v JSONU, vrátí se hotová třída game.GameData
+
             return gson.fromJson(
                     new InputStreamReader(is, StandardCharsets.UTF_8),
                     GameData.class
@@ -47,11 +37,6 @@ public class GameData {
 
     }
 
-    /**
-     * Finds a specific location by its identifier.
-     * @param id the identifier of the location to be found
-     * @return the matching location
-     */
     public Location findLocation(String id) {
         for (Location l : locations) {
             if (l.getId().equals(id)){
@@ -59,6 +44,30 @@ public class GameData {
             }
         }
         throw new IllegalArgumentException("Neexistuje lokace s id: " + id);
+    }
+
+
+    public void initWorld() {
+        if (locations == null) return;
+
+        for (Location loc : locations) {
+            // Pokud má lokace v JSONu nějaké předměty
+            if (loc.getInitialItemIds() != null) {
+                for (String itemId : loc.getInitialItemIds()) {
+                    // Najdeme skutečný předmět podle ID
+                    Item item = findItemById(itemId);
+                    if (item != null) {
+                        loc.addItem(item); // Vložíme ho do místnosti
+                    }
+                }
+            }
+        }
+    }
+    public Item findItemById(String id) {
+        for (Item i : items) {
+            if (i.getId().equals(id)) return i;
+        }
+        return null;
     }
 
 

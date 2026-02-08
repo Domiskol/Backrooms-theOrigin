@@ -10,6 +10,7 @@ public class Game {
 
 
         world = GameData.loadGameDataFromResources("/gamedata.json");
+        this.world.initWorld();
 
         this.player = new Player();
         if (!world.locations.isEmpty()) {

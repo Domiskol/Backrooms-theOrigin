@@ -1,23 +1,23 @@
 {
   "locations": [
     {
-      "id": "start",
-      "name": "Vstupní hala",
-      "description": "Nacházíš se ve žluté místnosti s bzučícími zářivkami.",
-      "exits": {
-        "sever": "chodba_1",
-        "vychod": "sklad"
-      }
-    },
-    {
-      "id": "chodba_1",
-      "name": "Nekonečná chodba",
-      "description": "Chodba, která se zdá být nekonečná.",
-      "exits": {
-        "jih": "start"
-      }
+      "id": "sklad",
+      "name": "Starý sklad",
+      "description": "Je tu tma a vlhko.",
+      "exits": { "sever": "chodba" },
+      "items": ["baterka", "klic"]
     }
   ],
-  "items": [],
-  "characters": []
+  "items": [
+    {
+      "id": "baterka",
+      "name": "UV Baterka",
+      "description": "Svítí fialově."
+    },
+    {
+      "id": "klic",
+      "name": "Klíč od výtahu",
+      "description": "Malý stříbrný klíček."
+    }
+  ]
 }
