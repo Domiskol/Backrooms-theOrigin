@@ -1,28 +1,19 @@
-# Příběh
-
-Dominik byl obyčejný student, dokud se neocitl v Starting room.
-Místě s dokonale bílými stěnami a bzučícími zářivkami.
-Kolem něj jsou jen červené šipky a ozvěna vlastních kroků, která se občas ozývá se zpožděním.
-Musíte prozkoumat tajemné lokace jako Ztracenou třídu nebo Servisní chodby, komunikovat s děsivými postavami a vyhnout se entitám.
-
-# Ovládáni hry
-
-pohyb – Základní příkaz pro přesun mezi místnostmi. Po zadání se vás hra zeptá na směr (např. sever, jih, vychod, zapad).
-
-seber – Umožňuje zvednout předmět v aktuální místnosti.
-
-Pozor: Máte omezenou kapacitu inventáře! Některé těžší předměty (např. Meč) zabírají více místa.
-
-inventar – Zobrazí seznam všech věcí, které aktuálně nesete v batohu, a ukáže vám, kolik místa vám ještě zbývá.
-
-zahod – Vyhodí předmět z vašeho inventáře zpět do místnosti, ve které se nacházíte. Užitečné, pokud potřebujete uvolnit místo pro něco důležitějšího.
-
-mluv – Zahájí rozhovor s postavou v místnosti. Můžete potkat Kreslíře, Učitele bez obličeje nebo i něco mnohem horšího.
-
-help – Zobrazí seznam všech dostupných příkazů, pokud si nevíte rady.
-
-stop – Okamžitě ukončí hru.
-
-# Cíl hry
-
-Vaším cílem je se dostat do místnosti observačního sálu v bezpečí a jestli máte štestí utéct.
+# **Overview**
+## Author ✍
+My name is Dominik Saidl and i created this game as a project for my school. I hope this game will inspire you to make simple games like this too!😁
+## About the game 🎙
+It is a console game, where you move through rooms, find exciting items, and try to escape a maze!
+## Github 🛠
+Here is my Github: https://github.com/Domiskol
+# **Game Controls**
+1. Help - shows you all the controls you can use
+2. Stop - quits the game
+3. pohyb - with this command you can move around the map
+4. seber - you can pickup items with this command
+5. inventory - you can see your inventory
+6. drop - drops the item you want
+7. mluv - you can talk with the npcs
+# **How to start the game**
+1. open command prompt
+2. type java -jar (the location where you have installed the game on your computer)
+3. and run!
