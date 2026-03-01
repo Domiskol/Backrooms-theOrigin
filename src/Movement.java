@@ -26,22 +26,25 @@ public class Movement extends Command{
 
             if (nextLocation != null) {
                 p.setCurrentLocation(nextLocation);
+
+
+                // jestli neni v inventari item tak umre
+                if (nextLocation.getId().equals("temna_mistnost")) {
+
+                    boolean hasWeapon = p.findItemInInventory("meč") != null || p.findItemInInventory("nouzový sprej") != null;
+
+                    if (!hasWeapon) {
+                        this.isWin = false;
+
+                        return "!!! SMRT !!!\nVstoupil jsi do temné místnosti nepřipraven. Slepá entita tě slyšela dřív, než jsi ji mohl ucítit. Hra končí.";
+                    }
+                }
+
+
                 return "Přešel jsi do: " + nextLocation.getName() + "\n" + nextLocation.getDescription();
             }
         }
         Location novaLokace = p.getCurrentLocation();
-
-        if (!novaLokace.getCharactersInRoom().isEmpty()) {
-            for (GameCharacter c : novaLokace.getCharactersInRoom()) {
-
-                if ("kreslir".equals(c.getName())) {
-                    System.out.println("!!! POZOR !!!");
-                    System.out.println("V rohu místnosti vidíš: " + c.getName());
-                    System.out.println(c.getSpeech());
-
-                }
-            }
-        }
 
 
 

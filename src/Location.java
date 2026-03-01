@@ -12,6 +12,7 @@ public class Location {
     private List<String> items;
     private transient List<Item> itemsInRoom = new ArrayList<>();
 
+    // gettery
     public String getId() {
         return id;
     }

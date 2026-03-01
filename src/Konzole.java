@@ -36,12 +36,25 @@ public class Konzole {
         String prikaz = scanner.next();
         prikaz = prikaz.trim().toLowerCase();
         ulozPrikaz(prikaz);
+
         if (mapa.containsKey(prikaz)) {
-            System.out.println(">> " + mapa.get(prikaz).execute());
-            exit = mapa.get(prikaz).exit();
-        } else {
-            System.out.println(">> Nedefinovany prikaz");
+            Command c = mapa.get(prikaz);
+            String result = c.execute();
+            System.out.println(">> " + result);
+            this.exit = c.exit();
+
+            String locId = player.getCurrentLocation().getId();
+            if (locId.equals("observacni_sal")) {
+                System.out.println(">> VYHRÁL JSI!");
+                this.exit = true;
+
+            } else if (result.contains("SMRT")) {
+                this.exit = true;
+            }
         }
+
+
+
     }
     public void start() {
         System.out.println("Hlavní postava hry Dominik pochází ze školy jménem Ječná, která poslední roky\n" +

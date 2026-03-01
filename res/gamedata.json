@@ -64,7 +64,7 @@
       "description": "Bílé stěny, bzučící zářivky a první červené šipky. Dominik: 'Kde to sakra jsem?'",
       "exits": { "sever": "chodba_sipek", "zapad": "observacni_sal" },
       "characterIds": [],
-      "itemIds": ["sesit"]
+      "items": ["sesit"]
     },
     {
       "id": "chodba_sipek",
@@ -72,7 +72,7 @@
       "description": "Klikatá chodba plná překrývajících se šipek. Něco tu cvaká.",
       "exits": { "jih": "start", "vychod": "mistnost_textu" },
       "characterIds": ["prisera_1"],
-      "itemIds": []
+      "items": []
     },
     {
       "id": "mistnost_textu",
@@ -80,7 +80,7 @@
       "description": "Nízký strop a stěny popsané znaky, které nedávají smysl.",
       "exits": { "zapad": "chodba_sipek", "sever": "ztracena_trida" },
       "characterIds": ["kreslir"],
-      "itemIds": ["hodinky"]
+      "items": ["hodinky"]
     },
     {
       "id": "ztracena_trida",
@@ -88,7 +88,7 @@
       "description": "Lavice zarostlé do země a hodiny tikající pozpátku.",
       "exits": { "jih": "mistnost_textu", "vychod": "servisni_chodby" },
       "characterIds": ["ucitel"],
-      "itemIds": ["mobil"]
+      "items": ["mobil"]
     },
     {
       "id": "servisni_chodby",
@@ -96,7 +96,7 @@
       "description": "Tma, potrubí a ozvěna tvých vlastních kroků, která se opožďuje.",
       "exits": { "zapad": "ztracena_trida", "sever": "sklad" },
       "characterIds": [],
-      "itemIds": ["tyc"]
+      "items": ["tyc"]
     },
     {
       "id": "sklad",
@@ -104,7 +104,7 @@
       "description": "Hromady batohů a klíčů. Mezi haraburdím něco září.",
       "exits": { "jih": "servisni_chodby", "sever": "temna_mistnost" },
       "characterIds": [],
-      "itemIds": ["mec", "sprej"]
+      "items": ["mec", "sprej"]
     },
     {
       "id": "temna_mistnost",
@@ -112,7 +112,7 @@
       "description": "Naprostá tma. Slyšíš jen svůj dech a něčí další.",
       "exits": { "jih": "sklad", "sever": "observacni_sal" },
       "characterIds": ["prisera_1"],
-      "itemIds": []
+      "items": []
     },
     {
       "id": "observacni_sal",
@@ -120,7 +120,7 @@
       "description": "Kruhová místnost s okny. Máš pocit, že tě odtud někdo sleduje.",
       "exits": { "jih": "temna_mistnost" },
       "characterIds": ["kreslir"],
-      "itemIds": []
+      "items": []
     }
   ]
 }

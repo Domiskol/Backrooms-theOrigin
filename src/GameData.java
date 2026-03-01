@@ -62,18 +62,16 @@ public class GameData {
                 }
             }
         }
-
-        for (Location l : locations) { // Tady definuješ proměnnou 'l'
-            if (l.getInitialCharacterIds() != null) { // Použiješ 'l'
+        for (Location l : locations) {
+            if (l.getInitialCharacterIds() != null) {
                 for (String charId : l.getInitialCharacterIds()) {
                     GameCharacter character = findCharacterById(charId);
                     if (character != null) {
-                        l.addCharacter(character); // Použiješ 'l'
+                        l.addCharacter(character);
                     }
                 }
             }
         }
-
 
     }
     public Item findItemById(String id) {

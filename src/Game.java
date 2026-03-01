@@ -12,6 +12,7 @@ public class Game {
         world = GameData.loadGameDataFromResources("/gamedata.json");
         this.world.initWorld();
 
+        // nastavi na prvni lokaci
         this.player = new Player();
         if (!world.locations.isEmpty()) {
             player.setCurrentLocation(world.locations.get(0));

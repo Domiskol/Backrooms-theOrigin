@@ -27,7 +27,6 @@ public class Drop extends Command{
             player.removeItem(item);
 
             // 3. Přidáme ho do aktuální místnosti
-            // (Předpokládám, že Location má metodu addItem - viz níže)
             player.getCurrentLocation().addItem(item);
 
             return "Zahodil jsi " + item.getName();
